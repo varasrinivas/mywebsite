@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Learn | Code | Deploy</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.css" />
+</head>
+
+<body>
+  <div class="container">
+    <div class="card card-body py-3">
+      <h3>Enviornment Information From My Raspberry PI SenseHat</h3>
+      <p class="mt-2 lead">I took below courses to code and host this web site. Hope this information will be useful for you as well for hosting your own website.</p>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Line Chart</h4>
+          <div id="d3linechart"></div>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h4 class="card-title">Last Recorded Data</h4>
+          <svg>
+              <rect width="50" height="200" style="fill: blue;"/>
+            </svg>
+          <svg>
+              <circle cx="50" cy="50" r="25" style="fill: blue;"/>
+            </svg>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h4 class="card-title">Last Recorded Data</h4>
+          <div id="d3first"></div>
+          <div id="d3circle"></div>
+          <div id="d3text"></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">Bar Chart</h4>
+          <div id="d3barchart"></div>
+        </div>
+      </div>
+    </div>
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <script>
+      d3.select("#d3first") //select the <body> html tag
+        .append("svg") //add a new <svg> html element
+        .append("rect") //add a new <rect> html element which will be our bar
+        .attr("width", 50) //set the width of our bar
+        .attr("height", 200) //set the height of our bar
+        .style("fill", "red"); //fill the bar w/ the color blue
+
+      d3.select("#d3circle") //select the <body> html tag
+        .append("svg") //add a new <svg> html element
+        .attr("width", 50) //set the width of our bar
+        .attr("height", 50) //set the height of our bar
+        .append("circle") //add a new <rect> html element which will be our bar
+        .attr("cx", 25) //set the width of our bar
+        .attr("cy", 25) //set the height of our bar
+        .attr("r", 25) //set the height of our bar
+        .style("fill", "blue"); //fill the bar w/ the color blue
+
+      d3.select('#d3text')
+        .append("svg")
+        .attr("width", 50)
+        .attr("width", 200)
+        .append("text")
+        .text("Srinivas")
+        .attr("y", 25)
+        .attr("x", 0)
+        .style("fill", "blue");
+
+      var w = 300;
+      var h = 100;
+      var padding = 2;
+      var dataset = [5, 10, 15, 20, 25];
+      var svg = d3.select("#d3barchart")
+        .append("svg")
+        .attr("width", w)
+        .attr("height", h);
+
+      function colorPicker(v) {
+        if (v <= 20) {
+          return "#666666";
+        } else if (v >= 20) {
+          return "#FF0033";
+        }
+      }
+
+      svg.selectAll("rect")
+        .data(dataset)
+        .enter()
+        .append("rect")
+        .attr({
+          x: function(d, i) {
+            return (i * (w / dataset.length));
+          },
+          y: function(d) {
+            return h - (d * 4);
+          },
+          width: w / dataset.length - padding,
+          height: function(d) {
+            return (d * 4);
+          },
+          fill: function(d) {
+            return colorPicker(d);
+          }
+        });
+
+      svg.selectAll("text")
+        .data(dataset)
+        .enter()
+        .append("text")
+        .text(function(d) {
+          return d;
+        })
+        .attr({
+          "text-anchor": "middle",
+          x: function(d, i) {
+            return i * (w / dataset.length) + (w / dataset.length - padding) / 2;
+          },
+          y: function(d) {
+            return h - (d * 4) + 14
+          },
+          "font-family": "sans-serif",
+          "font-size": 12,
+          "fill": "#ffffff"
+        });
+
+      var h = 350;
+      var w = 400;
+
+      monthlySales = [{
+          "month": 10,
+          "sales": 100
+        },
+        {
+          "month": 20,
+          "sales": 130
+        },
+        {
+          "month": 30,
+          "sales": 250
+        },
+        {
+          "month": 40,
+          "sales": 300
+        },
+        {
+          "month": 50,
+          "sales": 265
+        },
+        {
+          "month": 60,
+          "sales": 225
+        },
+        {
+          "month": 70,
+          "sales": 180
+        },
+        {
+          "month": 80,
+          "sales": 120
+        },
+        {
+          "month": 90,
+          "sales": 145
+        },
+        {
+          "month": 100,
+          "sales": 130
+        }
+      ];
+
+      //Function to generate line "path"
+      var lineFun = d3.svg.line()
+        .x(function(d) {
+          return d.month * 3;
+        })
+        .y(function(d) {
+          return h - d.sales;
+        })
+        .interpolate("linear");
+
+      //create our SVG
+      var svg = d3.select("#d3linechart").append("svg").attr({
+        width: w,
+        height: h
+      });
+
+      //build the viz
+      var viz = svg.append("path")
+        .attr({
+          d: lineFun(monthlySales),
+          "stroke": "purple",
+          "stroke-width": 2,
+          "fill": "none"
+        });
+
+
+      //add labels
+      var labels = svg.selectAll("text")
+        .data(monthlySales)
+        .enter()
+        .append("text")
+        //.text(function(d){ return d.sales; } )
+        .text(function(d) {
+          return d.sales;
+        })
+        .attr({
+          x: function(d) {
+            return (d.month * 3) - 25;
+          },
+          y: function(d) {
+            return h - d.sales;
+          },
+          "font-size": "12px",
+          "font-family": "sans-serif",
+          "fill": "#666666",
+          "text-anchor": "start",
+          "dy": ".35em",
+          "font-weight": function(d, i) {
+            if (i === 0 || i == (monthlySales.length - 1)) {
+              return "bold";
+            } else {
+              return "normal";
+            }
+          }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,46 @@
+[{
+  "device_id": "sensehat_pi",
+  "timestamp": 20160101,
+  "temperature": 10,
+  "pressure": "50",
+  "humidity": "50"
+}, {
+  "device_id": "sensehat_pi",
+  "timestamp": 20160202,
+  "temperature": 30,
+  "pressure": "40",
+  "humidity": "50"
+}, {
+  "device_id": "sensehat_pi",
+  "timestamp": 20160303,
+  "temperature": 40,
+  "pressure": "50",
+  "humidity": "90"
+},
+
+{
+  "device_id": "sensehat_pi",
+  "timestamp": 20160404,
+  "temperature": 50,
+  "pressure": "50",
+  "humidity": "90"
+},
+
+{
+  "device_id": "sensehat_pi",
+  "timestamp": 20160505,
+  "temperature": 60,
+  "pressure": "50",
+  "humidity": "90"
+},
+
+{
+  "device_id": "sensehat_pi",
+  "timestamp": 20160606,
+  "temperature": 80,
+  "pressure": "50",
+  "humidity": "90"
+}
+
+
+]

@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Learn | Code | Deploy</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.css" />
+  <style>
+    .axis path {
+      fill: none;
+      stroke: #FFFF00;
+      shape-rendering: crispEdges;
+    }
+
+    .axis line {
+      fill: none;
+      stroke: #fff;
+      shape-rendering: crispEdges;
+    }
+
+    .axis text {
+      font-family: sans-serif;
+      font-size: 12px;
+      fill: #fff;
+    }
+
+    #viz text.label {
+      font-family: sans-serif;
+      font-size: 15px;
+      fill: #fff;
+    }
+
+    #viz path {
+      fill: none;
+      stroke: #FFFF00;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header id="main-header">
+      <div class="row no-gutters">
+        <div class="col-lg-4 col-md-5">
+          <img src="img/profile.jpg" alt="">
+        </div>
+        <div class="col-lg-8 col-md-7">
+          <div class="d-flex flex-column">
+            <div class="p-5 bg-dark text-white">
+              <div class="name d-flex flex-row align-items-center">
+                <h1 class="display-4 mr-3">Vara Srinivas</h1>
+                <div class="p-2  mr-5"><a href="https://github.com/varasrinivas"><i class="fa fa-github" style="color:white"></i></a></div>
+              </div>
+            </div>
+          </div>
+          <div class="p-4 bg-black text-white">
+            Java Web Development Enthusiast
+          </div>
+          <div class="d-flex flex-row text-white text-center align-items-stretch">
+            <div class="port-item p-4 bg-primary" data-toggle="collapse" data-target="#home">
+              <i class="fa fa-home d-block"></i> Home
+            </div>
+            <div class="port-item p-4 bg-success" data-toggle="collapse" data-target="#notes">
+              <i class="fa fa-sticky-note-o d-block"></i> My Notes
+            </div>
+            <div class="port-item p-4 bg-warning" data-toggle="collapse" data-target="#iot">
+              <i class="fa fa-cloud d-block"></i> IoT
+            </div>
+            <div class="port-item p-4 bg-danger d-none d-md-block d-lg-block d-xl-block" data-toggle="collapse" data-target="#fun">
+              <i class="fa fa-gamepad d-block"></i> Fun
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Home section -->
+    <div class="collapse show" id="home">
+      <div class="card card-body bg-primary text-white py-5">
+        <h2>Welcome to my site</h2>
+        <p class="lead">My main aim of setting up this site is to share my learning experiences and in the process implement the subjects I have learned as well. Also its kind of cool to build and host your own website !!!!. I am not an expert programmer but keen learner.
+          I setup this site by taking up courses in <strong>Udemy</strong>, <strong>Treehouse</strong> and <strong>PluralSight</strong> online training websites. This site is built and hosted using <strong>AWS Serverless framework</strong> and have incorporated
+          several technologies into the site such as <strong>Bootstrap</strong>,
+          <strong>D3.js</strong>, <strong>Python</strong>, <strong>Unity</strong>, <strong>AWS services(AWS IoT, Lambda, DynamoDB, API Gateway,
+          S3, Route 53)</strong>. <strong>My Notes</strong> section contains information on my learning journey. I had little or no experience in the technologies used to build components on this site. <strong> Lastly if I can do it so can you!! </strong>
+        </p>
+      </div>
+      <div class="card card-body py-4">
+        <h3>My Skills</h3>
+        <p>
+          My primary domain expertise is in B2B eCommerce solutions. I have also worked on Network Management Softwares such as HP OpenView and IBM's SNAPPiMON in the past.
+        </p>
+        <h4>Java</h4>
+        <div class="progress mb-3">
+          <div class="progress-bar bg-success" style="width:60%"></div>
+        </div>
+        <h4>Spring</h4>
+        <div class="progress mb-3">
+          <div class="progress-bar bg-success" style="width:50%"></div>
+        </div>
+        <h4>Hybris</h4>
+        <div class="progress mb-3">
+          <div class="progress-bar bg-success" style="width:20%"></div>
+        </div>
+        <h4>Apache</h4>
+        <div class="progress mb-3">
+          <div class="progress-bar bg-success" style="width:60%"></div>
+        </div>
+        <h4>AWS</h4>
+        <div class="progress mb-3">
+          <div class="progress-bar bg-success" style="width:50%"></div>
+        </div>
+        <h4>IoT(Raspberry PI, AWS IoT and Predix)</h4>
+        <div class="progress mb-3">
+          <div class="progress-bar bg-success" style="width:30%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!--My Notes-->
+    <div class="collapse" id="notes">
+      <div class="card card-body bg-success py-5 text-white">
+        <h2>My Notes</h2>
+        <p class="lead">I have complied a list of courses which got me started in my learning journey. I used the below courses to learn and implement my technical interests.</p>
+      </div>
+      <div class="card card-body py-3">
+        <h3>Front-End Development and Hosting</h3>
+        <p class="mt-2 lead">I took below courses to code and host this web site. Hope this information will be useful for you as well for hosting your own website.</p>
+        <div class="card-deck ">
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">Bootstrap-4-from-scratch-with-5-projects</h4>
+              <p class="card-text">This course on <strong>Udemy</strong> will literally take you from knowing nothing about Bootstrap 3 or 4 to learning all of the utilities, components, widgets and grids and building real world themes and websites.</p>
+            </div>
+            <div class="card-footer bg-dark">
+              <a href="https://www.udemy.com/bootstrap-4-from-scratch-with-5-projects/learn/v4/overview" class="btn btn-success p-1 btn-block" role="button" aria-disabled="true">
+                            Go To The Course
+                          </a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">AWS Serverless APIs & Apps - A Complete Introduction</h4>
+              <p class="card-text">This <strong>Udemy</strong> course is a great course get started with serverless framework. This course will introduce you to serverless computing and then quickly dive into how to build serverless apps with Amazon Web Services (AWS).
+              </p>
+            </div>
+            <div class="card-footer bg-dark">
+              <a href="https://www.udemy.com/aws-serverless-a-complete-introduction/learn/v4/overview" class="btn btn-success p-1 btn-block" role="button" aria-disabled="true">
+                                  Go To The Course
+                            </a>
+            </div>
+          </div>
+          <div class="card">
+            <div class="card-body">
+              <h4 class="card-title">AWS Certified Solutions Architect - Associate 2017</h4>
+              <p class="card-text">This excellent <strong>Udemy</strong> course will provide an overview of the AWS platform and then deep dive into the individual elements of the AWS platform. This course will explore Route53, EC2, S3, Cloud Front, Autoscaling, Load Balancing,
+                RDS, RedShift, DynamoDB, EMR, VPC etc.
+              </p>
+            </div>
+            <div class="card-footer bg-dark">
+              <a href="https://www.udemy.com/aws-certified-solutions-architect-associate/learn/v4/overview" class="btn btn-success p-1 btn-block" role="button" aria-disabled="true">
+                            Go To The Course
+                          </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--IoT-->
+    <div class="collapse" id="iot">
+      <div class="card card-body bg-warning py-5">
+        <h2>IoT</h2>
+        <p class="lead">This page is my experimental take on IoT. I wanted to read environment information from Sense HAT an add-on board for Raspberry Pi and push the information to cloud using AWS services. I took few online training courses on
+          <strong>Udemy</strong> and <strong>Pluralsight</strong> to complete my experiment. I used AWS services such as
+          <strong>API Gateway</strong>, <strong>Lambda</strong>, <strong>DynamoDB</strong> and <strong>AWS IoT</strong> to practically implement this IoT experiement. For charting data <strong>D3.js</strong> was used. </p>
+      </div>
+
+
+      <div class="card card-body py-3">
+        <h3 class="d-none d-lg-block">Enviornment Information From My Raspberry PI</h3>
+        <h4 class="d-lg-none d-xl-none">Enviornment Information From My Raspberry PI</h4>
+          <div class="p-2 mt-2 mb-2 bg-dark text-white border border-warning d-lg-none d-xl-none">
+          <div id="live"><i class="fa fa-circle mr-2" style="color:red"></i>Live / Last Recorded</div>
+          <div class="d-flex flex-row justify-content-center">
+            <div class="mr-3"><i class="fa fa-thermometer-empty mr-2"></i> <span id="latestTemperature"></span> &#x2103;</div>
+            <div class="mr-3"><i class="fa fa-tint"></i> <span id="latestHumidity"></span> %</div>
+            <div class="mr-3"><i class="fa fa-tachometer"></i> <span id="latestPressure"></span> mbars</div>
+          </div>
+        </div>
+        <div class="p-4 mt-2 mb-2 bg-dark text-white border border-warning d-none d-lg-block d-xl-block">
+          <div id="live"><i class="fa fa-circle mr-2" style="color:red"></i>Live / Last Recorded</div>
+          <div class="name d-flex flex-row justify-content-center">
+            <div class="summary mr-5"><i class="fa fa-thermometer-empty mr-2"></i> <span id="latestTemperatureLG"></span> &#x2103;</div>
+            <div class="summary mr-5"><i class="fa fa-tint"></i> <span id="latestHumidityLG"></span> %</div>
+            <div class="summary"><i class="fa fa-tachometer"></i> <span id="latestPressureLG"></span> mbars</div>
+          </div>
+        </div>
+        <div class="card-deck mb-3">
+          <div class="card bg-dark d-none d-lg-block d-xl-block">
+            <div class="card-body">
+              <div id="tstempchart">
+              </div>
+            </div>
+          </div>
+          <div class="card bg-dark d-none d-lg-block d-xl-block">
+            <div class="card-body">
+              <div id="tshumdchart">
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Last Recorded Data</h4>
+            <table class="table table-hover table-dark" data-toggle="table" data-url="https://7kf74bg6w7.execute-api.us-east-1.amazonaws.com/dev/getsensordata">
+              <thead>
+                <tr>
+                  <th data-field="device_id">Device</th>
+                  <th data-field="timestamp">Time</th>
+                  <th data-field="temperature">Temperature</th>
+                  <th data-field="pressure">Pressure</th>
+                  <th data-field="humidity">Humidity</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      -->
+      </div>
+    </div>
+
+
+    <!--Fun-->
+    <div class="collapse" id="fun">
+      <div class="card card-body bg-danger py-5 text-white">
+        <h2>Game Development</h2>
+        <p class="lead">Below is text based game created using Unity game development tool.</p>
+      </div>
+      <div class="d-flex flex-row justify-content-center">
+        <div class="d-none d-lg-block d-md-block" id="gameContainer" style="width: 1200px; height: auto; margin: auto"></div>
+      </div>
+    </div>
+
+
+    <!--Footer -->
+    <footer id="main-footer" class="p-3 mb-3 bg-dark text-white">
+      <div class="d-flex flex-row justify-content-center">
+        <div class="p-3"><a href="https://www.udemy.com" style="color:white">Udemy</a></div>
+        <div class="p-3"><a href="https://www.pluralsight.com" style="color:white">PluralSight</a></div>
+        <div class="p-3"><a href="https://teamtreehouse.com/home" style="color:white">Treehouse</a></div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.2.0/ekko-lightbox.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.11.1/bootstrap-table.min.js"></script>
+  <script src="Build/UnityLoader.js"></script>
+  <script src="https://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+  <script>
+    var gameInstance = UnityLoader.instantiate("gameContainer", "Build/web-gl-res.json");
+    $('.port-item').click(function() {
+      $('.collapse').collapse('hide');
+    });
+
+    $(document).on('click', '[data-toggle="lightbox"]', function(event) {
+      event.preventDefault();
+      $(this).ekkoLightbox();
+    });
+
+    
+    var height = 200;
+    var width = 400;
+    var padding = 70;
+
+
+    function chartSize() {
+      if (screen.width > 899) {
+        width = 350;
+        height = 200;
+      } else {
+        width = 300;
+        height = 100;
+      }
+    }
+
+    //Not using currently
+    var parseTime = d3.time.format("%Y%m%d%H%M%S");
+
+    //Convert to javascript date
+    function getDate(d) {
+      var strDate = new String(d);
+      year = strDate.substring(0, 4);
+      month = strDate.substring(4, 6) - 1;
+      day = strDate.substring(6, 8);
+      hours = strDate.substring(8, 10);
+      minutes = strDate.substring(10, 12);
+      seconds = strDate.substring(12, 14);
+      return new Date(year, month, day, hours, minutes, seconds);
+    }
+
+    //Building graphing
+    function buildGraph(ds, id, param) {
+
+      //SVG container
+      var svg = d3.selectAll(id).append("svg")
+        .attr("height", height + (padding * 2))
+        .attr("width", width + (padding * 2));
+
+      //Graph
+      var viz = svg.append("g")
+        .attr("id", "viz")
+        .attr("transform", "translate(" + padding + "," + padding + ")");
+
+      //Grpah scaling
+      var xScale = d3.time.scale().range([0, width]);
+      var yScale = d3.scale.linear().range([height, 0]);
+
+      //Axis initialization
+      //var xAxis = d3.svg.axis().scale(xScale).orient("bottom").tickFormat(d3.time.format("%d %b %H:%M")).ticks(6);
+      var xAxis = d3.svg.axis().scale(xScale).orient("bottom").tickFormat(d3.time.format("%d %b %H:%M")).ticks(6);
+      var yAxis = d3.svg.axis().scale(yScale).orient("left").ticks(10);
+
+      //Calculating domains(not using)
+      yDomain = d3.extent(ds, function(d) {
+        if (param === "temperature") {
+          return parseInt(d.temperature) * 1.1;
+        } else {
+          return parseInt(d.humidity) * 1.1;
+        }
+      });
+
+      yMax = d3.max(ds, function(d) {
+        if (param === "temperature") {
+          return parseInt(d.temperature) * 1.1;
+        } else {
+          return parseInt(d.humidity) * 1.1;
+        }
+      });
+
+      xMin = d3.min(ds, function(d) {
+        time = getDate(d.timestamp);
+        return time.setMinutes(time.getMinutes() - 1);
+      });
+
+      xMax = d3.max(ds, function(d) {
+        time = getDate(d.timestamp);
+        return time.setMinutes(time.getMinutes() + 1);
+      });
+
+
+      //Adding domain
+      yScale.domain([0, yMax]);
+      xScale.domain([xMin, xMax]);
+
+      //Adding Axis
+      viz.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis)
+        .selectAll('text')
+        .attr("transform", function() {
+          return "rotate(-65)"
+        })
+        .attr("dx", "-32px")
+        .attr("dy", "10px");;
+
+      viz.append("g")
+        .attr("class", "y axis")
+        .call(yAxis);
+
+      if (param === "temperature") {
+        viz.append('text')
+          .attr('transform', 'translate(' + -50 + ',' +
+            -10 + ')' +
+            'rotate(0)')
+          .text('Temp (\u2103)')
+          .attr('class', 'label');
+      } else {
+        viz.append('text')
+          .attr('transform', 'translate(' + -50 + ',' +
+            -10 + ')' +
+            'rotate(0)')
+          .text('Humidity (%)')
+          .attr('class', 'label');
+      }
+
+      //create line function
+      var lineFun = d3.svg.line()
+        .x(function(d) {
+          return xScale(getDate(d.timestamp));
+        })
+        .y(function(d) {
+          if (param === "temperature") {
+            return yScale(d.temperature);
+          } else {
+            return yScale(d.humidity);
+          }
+        });
+
+      //Draw line
+      var line = viz.append("path")
+        .attr({
+          d: lineFun(ds),
+          "stroke": "#fff",
+          "stroke-width": "2",
+          "fill": "none"
+        });
+
+    }
+
+    d3.json("https://apigate-endpoint", function(error, data) {
+
+      latestTemperature = data[data.length - 1]['temperature'];
+      latestPressure = data[data.length - 1]['pressure'];
+      latestHumidity = data[data.length - 1]['humidity'];
+      timestamp = data[data.length - 1]['timestamp'];
+      //console.log("pi date:"+getDate(parseInt(timestamp)));
+      //console.log("current date:"+new Date());
+      $("#latestTemperature").text(latestTemperature);
+      $("#latestPressure").text(latestPressure);
+      $("#latestHumidity").text(latestHumidity);
+      $("#latestTemperatureLG").text(latestTemperature);
+      $("#latestPressureLG").text(latestPressure);
+      $("#latestHumidityLG").text(latestHumidity);
+      //chartSize();
+      buildGraph(data, "#tstempchart", "temperature");
+      buildGraph(data, "#tshumdchart", "humidity");
+
+    });
+  </script>
+</body>
+
+</html>
